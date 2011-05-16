@@ -137,64 +137,99 @@ Nesting
 
 ### Sass
 
-nav
-  ul
-    list-style: none;
-  li
-    float: left;
-    a
-      display:block
-      padding:
-        top: 5px
-        right: 10px
-        bottom: 4px
-        left: 10px
-      color: blue
-      &:hover, &:focus 
-        color: red
+    nav
+      ul
+        list-style: none;
+      li
+        float: left;
+        a
+          display:block
+          padding:
+            top: 5px
+            right: 10px
+            bottom: 4px
+            left: 10px
+          color: blue
+          &:hover, &:focus 
+            color: red
 
 ### Scss
 
-nav {
-  ul {
-    list-style: none;
-  }
-  li {
-    float: left;
-    
-    a {
-      display:block;
-      padding: {
-        top: 5px;
-        right: 10px;
-        bottom: 4px:
-        left: 10px;
+    nav {
+      ul {
+        list-style: none;
       }
-      color: blue;
-      &:hover, &:focus {
-        color: red;
+      li {
+        float: left;
+    
+        a {
+          display:block;
+          padding: {
+            top: 5px;
+            right: 10px;
+            bottom: 4px:
+            left: 10px;
+          }
+          color: blue;
+          &:hover, &:focus {
+            color: red;
+          }
+        }
       }
     }
-  }
-}
 
 ### CSS
 
-nav ul {
-    list-style: none;
-}
-  nav ul li {
-    float: left;
-  }
-    nav ul li a {
-      display:block;
-      padding-top: 5px;
-      padding-right: 10px;
-      padding-bottom: 4px:
-      padding-left: 10px;
-      color: blue;
+    nav ul {
+        list-style: none;
     }
-      nav ul li a:hover, nav ul li a:focus {
-        color: red;
+      nav ul li {
+        float: left;
+      }
+        nav ul li a {
+          display:block;
+          padding-top: 5px;
+          padding-right: 10px;
+          padding-bottom: 4px:
+          padding-left: 10px;
+          color: blue;
+        }
+          nav ul li a:hover, nav ul li a:focus {
+            color: red;
+          }
+
+Mixins
+======
+
+    ### Sass
+
+    =hover-link
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+
+    a
+      @include hover-link
+
+### Scss
+
+    @mixin hover-link {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline; 
+      } 
+    }
+
+    a {
+      @include hover-link;
+    }
+
+### CSS
+
+    a {
+      text-decoration: none; 
+    }
+      a:hover {
+        text-decoration: underline; 
       }
 
