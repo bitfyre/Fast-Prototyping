@@ -313,8 +313,43 @@ Functions
       font-size: 2em;
     }
 
-Scss & Sass
-===========
+Additional Sass & Scss Notes
+============================
 
+- Sass orginally inspired by terseness of HAML
+- Scss inspired by the LESS framework, trying to make Sass more accessible to designers
+- Also contains Control Directives `@if`, `@for`, `@each`, `@while`
+- Can `@import` css, scss, sass files into each other
+- Will when using @import compiles out to a single file
+- Supports a variety of output styles `:nested`, `:expanded`, `:compact`, `:compressed`
+- Useful Command line tool to swap between css, sass, scss, and less
 
-sass-convert --from scss --to sass _utilities.scss _utilities.sass
+    sass-convert --from scss --to sass _utilities.scss _utilities.sass
+
+Compass
+=======
+
+- CSS Authoring Framework built on top of Sass
+- Integrates with most Ruby web framworks
+- Simplifies CSS3 authoring (no more typing, -webkit, -moz, -ms, -o, etc.)
+- Has a variety of CSS grid frameworks ported ass extensions
+  * Blueprint (Default)
+  * 960gs
+  * YUI
+  * HTML 5 Boilerplate
+- Even has a custom frameworks built specifically on Compass
+  * Susy (one of my favorites)
+- Also has a number of Extensions
+  * Compass Colors
+  * Fancy Buttons
+
+Grid Frameworks
+===============
+
+- CSS Grid Frameworks done the right way
+- No presentational classes in html
+- Mixins & functions via sass
+
+Middleman
+=========
+
