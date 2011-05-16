@@ -65,7 +65,7 @@ Quick Example
     <div id='section'>
       <article>
         <h1>Hello World</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </article>
       <!--
         end article
@@ -90,3 +90,111 @@ Useful Features of HAML
 
 Sass
 ====
+
+- Provides a way to author CSS with:
+  * Variables
+  * Selector and Property Nesting
+  * Mixins
+  * Selector Inheritance
+  * Functions, as of sass 3.1
+- Compiled to CSS
+- Comes with two different syntaxes 
+  * Sass, the original more HAML like
+  * Scss ("Sassy css"), New as of 3.0, a superset of CSS3
+- Used to be bundled with HAML gem, separated as of 3.1
+
+Variables
+=========
+
+### Sass
+
+    $font-size: 12
+    $text-color: #222
+
+    html
+      font-size: $font-size / 16em
+      color: $text-color
+
+### Scss
+
+    $font-size: 12;
+    $text-color: #222;
+
+    html {
+      font-size: $font-size / 16.0em;
+      color: $text-color;
+    }
+
+### CSS
+
+    html {
+      font-size: 0.75em;
+      color: #222;
+    }
+
+Nesting
+=======
+
+### Sass
+
+nav
+  ul
+    list-style: none;
+  li
+    float: left;
+    a
+      display:block
+      padding:
+        top: 5px
+        right: 10px
+        bottom: 4px
+        left: 10px
+      color: blue
+      &:hover, &:focus 
+        color: red
+
+### Scss
+
+nav {
+  ul {
+    list-style: none;
+  }
+  li {
+    float: left;
+    
+    a {
+      display:block;
+      padding: {
+        top: 5px;
+        right: 10px;
+        bottom: 4px:
+        left: 10px;
+      }
+      color: blue;
+      &:hover, &:focus {
+        color: red;
+      }
+    }
+  }
+}
+
+### CSS
+
+nav ul {
+    list-style: none;
+}
+  nav ul li {
+    float: left;
+  }
+    nav ul li a {
+      display:block;
+      padding-top: 5px;
+      padding-right: 10px;
+      padding-bottom: 4px:
+      padding-left: 10px;
+      color: blue;
+    }
+      nav ul li a:hover, nav ul li a:focus {
+        color: red;
+      }
+
