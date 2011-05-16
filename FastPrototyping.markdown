@@ -201,7 +201,7 @@ Nesting
 Mixins
 ======
 
-    ### Sass
+### Sass
 
     =hover-link
       text-decoration: none
@@ -233,3 +233,88 @@ Mixins
         text-decoration: underline; 
       }
 
+Selector Inheritance
+====================
+
+### Sass
+
+    .error
+      border: 1px #f00
+      background: #fdd
+
+    .error.intrusion
+      font-size: 1.3em
+      font-weight: bold
+
+    .badError
+      @extend .error
+      border-width: 3px
+
+### Scss
+
+    .error {
+      border: 1px #f00;
+      background: #fdd;
+    }
+
+    .error.intrusion {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .badError {
+      @extend .error;
+      border-width: 3px;
+    }
+
+### CSS
+
+    .error, .badError {
+      border: 1px #f00;
+      background: #fdd;
+    }
+
+    .error.intrusion,
+    .badError.intrusion {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .badError {
+      border-width: 3px;
+    }
+
+Functions
+=========
+
+### Sass
+
+    @function pxs2ems($px: 0, $context: $font-size)
+      $ems: $px / $context * 1em
+      @return $ems
+    
+    h1
+      font-size: pxs2ems(24, 12)
+
+### Scss
+
+    @function pxs2ems($px: 0, $context: $font-size) {
+      $ems: ($px / $context) * 1em;
+      @return $ems;
+    }
+    
+    h1 {
+      font-size: pxs2ems(24, 12);
+    }
+
+### CSS
+
+    h1 {
+      font-size: 2em;
+    }
+
+Scss & Sass
+===========
+
+
+sass-convert --from scss --to sass _utilities.scss _utilities.sass
