@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta http-equiv="content-type" content="text/html;charset=utf-8"> 
+   <title>Fast Prototyping with HAML, Sass, Compass, and Middleman</title>
+
+<meta name="generator" content="- generator not found -">
+<meta name="author"    content="- author not found -" >
+
+<!-- S6 style sheet links -->
+<link rel="stylesheet" href="FastPrototyping.css" media="projection" id="styleProjection">
+<link rel="stylesheet" href="s6/screen.css"         media="screen"     id="styleScreen">
+<link rel="stylesheet" href="s6/print.css"          media="print">
+
+<!-- S6 JS -->
+<script src="s6/jquery.js"></script>
+<script src="s6/jquery.slideshow.js"></script>
+<script>
+  $(document).ready( function() {
+    Slideshow.init();
+  } );
+
+  
+</script>
+
+<!-- Better Browser Banner for Microsoft Internet Explorer (IE) -->
+<!--[if IE]>
+<script src="s6/jquery.microsoft.js"></script>
+<![endif]-->
+
+
+
+</head>
+<body>
+
+<div class="layout"> 
+  <div id="header"></div>
+  <div id="footer">
+    <h1></h1>
+    <h2></h2>
+  </div>
+</div>
+
+<div class="presentation">
+   
+<div class='slide '>
+<h1 id="fast-prototyping-with-haml-sass-compass-and-middleman">Fast Prototyping with HAML, Sass, Compass, and Middleman</h1></div>
+<div class='slide '>
+<h1 id="first-a-little-background">First a Little Background</h1></div>
+<div class='slide '>
+<h1 id="what-is-haml">What is HAML?</h1><ul>
+  <li>HTML Abstraction Markup Language</li>
+  <li>A Markup/Templating language that generates clean semantic XHTML</li>
+  <li>Originally created by <a href="http://hamptoncatlin.com/" title="Hampton Catlin">Hampton Catlin</a></li>
+  <li>Currently maintained by <a href="http://nex-3.com/" title="Nathan Weizenbaum">Nathan Weizenbaum</a> &amp; <a href="http://chriseppstein.github.com/" title="Chris Eppstein">Chris Eppstein</a></li>
+  <li>Can be found at <a href="http://haml-lang.com/" title="#haml">http://haml-lang.com/</a></li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="what-is-sass">What is Sass?</h1><ul>
+  <li>Syntactically Awesome Stylesheets</li>
+  <li>A stylesheet authoring language that adds things like Variables, Nesting, Mixins, and now Functions to CSS</li>
+  <li>Also, originally created by <a href="http://hamptoncatlin.com/" title="Hampton Catlin">Hampton Catlin</a></li>
+  <li>Currently maintained by <a href="http://nex-3.com/" title="Nathan Weizenbaum">Nathan Weizenbaum</a> &amp; <a href="http://chriseppstein.github.com/" title="Chris Eppstein">Chris Eppstein</a></li>
+  <li>Can be found at <a href="http://sass-lang.com/" title="Sass - Syntactically Awesome Stylesheets">http://sass-lang.com/</a></li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="what-is-compass">What is Compass?</h1><ul>
+  <li>CSS Authoring Framework built on top of Sass</li>
+  <li>CSS Grid Frameworks, CSS3 helpers, common functions, module for common CSS tasks (e.g. buttons, resets, typography basics)</li>
+  <li>Created and Maintained by <a href="http://chriseppstein.github.com/" title="Chris Eppstein">Chris Eppstein</a></li>
+  <li>Can be found at <a href="http://compass-style.org" title="Sass - Syntactically Awesome Stylesheets">http://compass-style.org</a></li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="what-is-middleman">What is Middleman?</h1><ul>
+  <li>Static Site Generator</li>
+  <li>Brings HAML, Sass, and Compass together into nice neat easy to use package</li>
+  <li>Built on Sinatra and Padrino to give us all sorts of useful helpers to speed up development</li>
+  <li>Created and Maintained <a href="http://awardwinningfjords.com/" title="Award Winning Fjords « Thomas Reynolds">Thomas Reynolds</a></li>
+  <li>Can be found at <a href="https://github.com/tdreyno/middleman/" title="Middleman on Github">https://github.com/tdreyno/middleman/</a></li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="haml">HAML</h1><ul>
+  <li>Whitespace aware</li>
+  <li>By default Outputs clean nicely indented HTML</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="quick-example">Quick Example</h1><h3 id="haml-1">HAML</h3>
+
+<pre><code>#section
+  %article
+    %h1 Hello World
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+  /
+    end article
+  %aside
+    %p.related
+      %a{:href =&gt; "/related-articles/", :title =&gt; "Articles Related to Hello World!"} Related Articles
+</code></pre>
+
+<h3 id="html">HTML</h3>
+
+<pre><code>&lt;div id='section'&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit.&lt;/p&gt;
+  &lt;/article&gt;
+  &lt;!--
+    end article
+  --&gt;
+  &lt;aside&gt;
+    &lt;p class='related'&gt;
+      &lt;a href='/related-articles/' title='Articles Related to Hello World!'&gt;Related Articles&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<h1 id="useful-features-of-haml">Useful Features of HAML</h1><ul>
+  <li>Follows CSS conventions </li>
+  <li>Specify different Doctypes <code>!!!</code>, <code>!!! Strict</code>, <code>!!! 5</code>, etc.</li>
+  <li>Recognizes conditional comments with <code>/[if IE]</code></li>
+  <li>HAML comments <code>-# Comment Here</code></li>
+  <li>Run Ruby within templates</li>
+  <li>Ruby Interpolation <code>#{@title}</code></li>
+  <li>Includes various filters plain text, javascript, css, textile, and more <code>:plain</code>, <code>:javascript</code>, <code>:css</code>, <code>:textile</code></li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="sass">Sass</h1><ul>
+  <li>Provides a way to author CSS with:
+    <ul>
+      <li>Variables</li>
+      <li>Selector and Property Nesting</li>
+      <li>Mixins</li>
+      <li>Selector Inheritance</li>
+      <li>Functions, as of sass 3.1</li>
+    </ul>
+  </li>
+  <li>Compiled to CSS</li>
+  <li>Comes with two different syntaxes 
+    <ul>
+      <li>Sass, the original more HAML like</li>
+      <li>Scss (“Sassy css”), New as of 3.0, a superset of CSS3</li>
+    </ul>
+  </li>
+  <li>Used to be bundled with HAML gem, separated as of 3.1</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="variables">Variables</h1><h3 id="sass-1">Sass</h3>
+
+<pre><code>$font-size: 12
+$text-color: #222
+
+html
+  font-size: $font-size / 16em
+  color: $text-color
+</code></pre>
+
+<h3 id="scss">Scss</h3>
+
+<pre><code>$font-size: 12;
+$text-color: #222;
+
+html {
+  font-size: $font-size / 16.0em;
+  color: $text-color;
+}
+</code></pre>
+
+<h3 id="css">CSS</h3>
+
+<pre><code>html {
+  font-size: 0.75em;
+  color: #222;
+}
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<h1 id="nesting">Nesting</h1><h3 id="sass-2">Sass</h3>
+
+<pre><code>nav
+  ul
+    list-style: none;
+  li
+    float: left;
+    a
+      display:block
+      padding:
+        top: 5px
+        right: 10px
+        bottom: 4px
+        left: 10px
+      color: blue
+      &amp;:hover, &amp;:focus 
+        color: red
+</code></pre>
+
+<h3 id="scss-1">Scss</h3>
+
+<pre><code>nav {
+  ul {
+    list-style: none;
+  }
+  li {
+    float: left;
+
+    a {
+      display:block;
+      padding: {
+        top: 5px;
+        right: 10px;
+        bottom: 4px:
+        left: 10px;
+      }
+      color: blue;
+      &amp;:hover, &amp;:focus {
+        color: red;
+      }
+    }
+  }
+}
+</code></pre>
+
+<h3 id="css-1">CSS</h3>
+
+<pre><code>nav ul {
+    list-style: none;
+}
+  nav ul li {
+    float: left;
+  }
+    nav ul li a {
+      display:block;
+      padding-top: 5px;
+      padding-right: 10px;
+      padding-bottom: 4px:
+      padding-left: 10px;
+      color: blue;
+    }
+      nav ul li a:hover, nav ul li a:focus {
+        color: red;
+      }
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<h1 id="mixins">Mixins</h1><h3 id="sass-3">Sass</h3>
+
+<pre><code>=hover-link
+  text-decoration: none
+  &amp;:hover
+    text-decoration: underline
+
+a
+  @include hover-link
+</code></pre>
+
+<h3 id="scss-2">Scss</h3>
+
+<pre><code>@mixin hover-link {
+  text-decoration: none;
+  &amp;:hover {
+    text-decoration: underline; 
+  } 
+}
+
+a {
+  @include hover-link;
+}
+</code></pre>
+
+<h3 id="css-2">CSS</h3>
+
+<pre><code>a {
+  text-decoration: none; 
+}
+  a:hover {
+    text-decoration: underline; 
+  }
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<h1 id="selector-inheritance">Selector Inheritance</h1><h3 id="sass-4">Sass</h3>
+
+<pre><code>.error
+  border: 1px #f00
+  background: #fdd
+
+.error.intrusion
+  font-size: 1.3em
+  font-weight: bold
+
+.badError
+  @extend .error
+  border-width: 3px
+</code></pre>
+
+<h3 id="scss-3">Scss</h3>
+
+<pre><code>.error {
+  border: 1px #f00;
+  background: #fdd;
+}
+
+.error.intrusion {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.badError {
+  @extend .error;
+  border-width: 3px;
+}
+</code></pre>
+
+<h3 id="css-3">CSS</h3>
+
+<pre><code>.error, .badError {
+  border: 1px #f00;
+  background: #fdd;
+}
+
+.error.intrusion,
+.badError.intrusion {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.badError {
+  border-width: 3px;
+}
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<h1 id="functions">Functions</h1><h3 id="sass-5">Sass</h3>
+
+<pre><code>@function pxs2ems($px: 0, $context: $font-size)
+  $ems: $px / $context * 1em
+  @return $ems
+
+h1
+  font-size: pxs2ems(24, 12)
+</code></pre>
+
+<h3 id="scss-4">Scss</h3>
+
+<pre><code>@function pxs2ems($px: 0, $context: $font-size) {
+  $ems: ($px / $context) * 1em;
+  @return $ems;
+}
+
+h1 {
+  font-size: pxs2ems(24, 12);
+}
+</code></pre>
+
+<h3 id="css-4">CSS</h3>
+
+<pre><code>h1 {
+  font-size: 2em;
+}
+</code></pre>
+
+
+</div>
+<div class='slide '>
+<h1 id="additional-sass--scss-notes">Additional Sass &amp; Scss Notes</h1><ul>
+  <li>Sass orginally inspired by terseness of HAML</li>
+  <li>Scss inspired by the LESS framework, trying to make Sass more accessible to designers</li>
+  <li>Also contains Control Directives <code>@if</code>, <code>@for</code>, <code>@each</code>, <code>@while</code></li>
+  <li>Can <code>@import</code> css, scss, sass files into each other</li>
+  <li>Will when using @import compiles out to a single file</li>
+  <li>Supports a variety of output styles <code>:nested</code>, <code>:expanded</code>, <code>:compact</code>, <code>:compressed</code></li>
+  <li>
+    <p>Useful Command line tool to swap between css, sass, scss, and less</p>
+
+    <p>sass-convert –from scss –to sass _utilities.scss _utilities.sass</p>
+  </li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="compass">Compass</h1><ul>
+  <li>CSS Authoring Framework built on top of Sass</li>
+  <li>Integrates with most Ruby web framworks</li>
+  <li>Simplifies CSS3 authoring (no more typing, -webkit, -moz, -ms, -o, etc.)</li>
+  <li>Has a variety of CSS grid frameworks ported as extensions
+    <ul>
+      <li>Blueprint (Default)</li>
+      <li>960gs</li>
+      <li>YUI</li>
+      <li>HTML 5 Boilerplate</li>
+    </ul>
+  </li>
+  <li>Even has a custom frameworks built specifically on Compass
+    <ul>
+      <li>Susy (one of my favorites)</li>
+    </ul>
+  </li>
+  <li>Also has a number of other Utility Extensions
+    <ul>
+      <li>Compass Colors</li>
+      <li>Fancy Buttons</li>
+    </ul>
+  </li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="grid-frameworks">Grid Frameworks</h1><ul>
+  <li>CSS Grid Frameworks done the right way</li>
+  <li>No presentational classes in html</li>
+  <li>Mixins &amp; functions via sass</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="middleman">Middleman</h1><ul>
+  <li>A static site generator with HAML, SASS, Coffee Script, JS/CSS compression, image compression and cache busting</li>
+  <li>Built on Thin, Sinatra, and Padrino</li>
+  <li>Provides a simple easy way to build UI’s in your favorite Ruby tools with out using a full webapp framework</li>
+  <li>So you don’t have </li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="middleman-tools">Middleman Tools</h1><ul>
+  <li>CLI
+    <ul>
+      <li><code>mm-init</code></li>
+      <li><code>mm-server</code></li>
+      <li><code>mm-build</code></li>
+    </ul>
+  </li>
+  <li>Lorem Helpers
+    <ul>
+      <li>Words</li>
+      <li>Sentence</li>
+      <li>Paragraphs</li>
+      <li>Date</li>
+      <li>Name</li>
+      <li>Email</li>
+    </ul>
+  </li>
+  <li>Placeholder image via Placehold.it</li>
+  <li>Can even run the sever app on Heroku or other Rack servers</li>
+  <li>Helpers for stylesheet links, javascript links, partials</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="new-slick-stuff-i-havent-played-with">New Slick Stuff I haven’t played with</h1><ul>
+  <li>New Project Templates</li>
+  <li>YAML Data API</li>
+  <li>Feature/Extension API</li>
+</ul>
+
+
+</div>
+<div class='slide '>
+<h1 id="on-to-the-code">On to the Code</h1></div>
+<div class='slide '>
+<h1 id="quetions">Quetions?</h1></div>
+<div class='slide '>
+<h1 id="thank-you">Thank You!</h1></div>
+<div class='slide '>
+<h1 id="links">Links</h1><h3 id="haml-2">HAML</h3>
+
+<ul>
+  <li><a href="http://haml-lang.com/">http://haml-lang.com/</a></li>
+  <li><a href="http://haml-lang.com/tutorial.html">http://haml-lang.com/tutorial.html</a></li>
+  <li><a href="http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html">http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html</a></li>
+</ul>
+
+<h3 id="sass-6">Sass</h3>
+
+<ul>
+  <li><a href="http://sass-lang.com/">http://sass-lang.com/</a></li>
+  <li><a href="http://sass-lang.com/tutorial.html">http://sass-lang.com/tutorial.html</a></li>
+  <li><a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html">http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html</a></li>
+</ul>
+
+<h3 id="compass-1">Compass</h3>
+
+<ul>
+  <li><a href="http://compass-style.org/">http://compass-style.org/</a></li>
+  <li><a href="http://vimeo.com/11671458">http://vimeo.com/11671458</a></li>
+</ul>
+
+<h3 id="middleman-1">Middleman</h3>
+
+<ul>
+  <li><a href="http://awardwinningfjords.com/2009/10/22/middleman.html">http://awardwinningfjords.com/2009/10/22/middleman.html</a></li>
+  <li><a href="https://github.com/tdreyno/middleman/wiki/">https://github.com/tdreyno/middleman/wiki/</a></li>
+  <li><a href="http://awardwinningfjords.com/2011/04/15/middleman-v11.html">http://awardwinningfjords.com/2011/04/15/middleman-v11.html</a></li>
+  <li><a href="http://middlemanapp.com/">http://middlemanapp.com/</a></li>
+</ul>
+</div>
+
+
+</div><!-- presentation -->
+</body>
+</html>
