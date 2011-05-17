@@ -332,14 +332,14 @@ Compass
 - CSS Authoring Framework built on top of Sass
 - Integrates with most Ruby web framworks
 - Simplifies CSS3 authoring (no more typing, -webkit, -moz, -ms, -o, etc.)
-- Has a variety of CSS grid frameworks ported ass extensions
+- Has a variety of CSS grid frameworks ported as extensions
   * Blueprint (Default)
   * 960gs
   * YUI
   * HTML 5 Boilerplate
 - Even has a custom frameworks built specifically on Compass
   * Susy (one of my favorites)
-- Also has a number of Extensions
+- Also has a number of other Utility Extensions
   * Compass Colors
   * Fancy Buttons
 
@@ -353,3 +353,69 @@ Grid Frameworks
 Middleman
 =========
 
+- A static site generator with HAML, SASS, Coffee Script, JS/CSS compression, image compression and cache busting
+- Built on Thin, Sinatra, and Padrino
+- Provides a simple easy way to build UI's in your favorite Ruby tools with out using a full webapp framework
+- So you don't have 
+
+Middleman Tools
+===============
+
+- CLI
+  * `mm-init`
+  * `mm-server`
+  * `mm-build`
+- Lorem Helpers
+  * Words
+  * Sentence
+  * Paragraphs
+  * Date
+  * Name
+  * Email
+- Placeholder image via Placehold.it
+- Can even run the sever app on Heroku or other Rack servers
+- Helpers for stylesheet links, javascript links, partials
+
+New Slick Stuff I haven't played with
+=====================================
+
+- New Project Templates
+- YAML Data API
+- Feature/Extension API
+
+
+On to the Code
+==============
+
+Quetions?
+=========
+
+Thank You!
+==========
+
+Links
+=====
+
+### HAML
+
+- [http://haml-lang.com/](http://haml-lang.com/)
+- [http://haml-lang.com/tutorial.html](http://haml-lang.com/tutorial.html)
+- [http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html](http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html)
+
+### Sass
+
+- [http://sass-lang.com/](http://sass-lang.com/)
+- [http://sass-lang.com/tutorial.html](http://sass-lang.com/tutorial.html)
+- [http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html)
+
+### Compass 
+
+- [http://compass-style.org/](http://compass-style.org/)
+- [http://vimeo.com/11671458](http://vimeo.com/11671458)
+
+### Middleman
+
+- [http://awardwinningfjords.com/2009/10/22/middleman.html](http://awardwinningfjords.com/2009/10/22/middleman.html)
+- [https://github.com/tdreyno/middleman/wiki/](https://github.com/tdreyno/middleman/wiki/)
+- [http://awardwinningfjords.com/2011/04/15/middleman-v11.html](http://awardwinningfjords.com/2011/04/15/middleman-v11.html)
+- [http://middlemanapp.com/](http://middlemanapp.com/)
